@@ -1,0 +1,62 @@
+.create-todo {
+    text-align: center;
+    display: block;
+    margin: 10px;
+}
+ul.todos {
+    list-style: none;
+    width: 400px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+}
+ul.todos li.empty {
+    display: none;
+}
+
+ul.todos.empty li.empty {
+    display: inherit;
+}
+
+ul.todos li {
+    margin-bottom: 5px;
+}
+
+form.todo input[type="checkbox"] {
+    display: inline-block;
+    float: right;
+}
+form.todo .remove {
+    visibility: hidden;
+    float: right;
+    padding: 5px;
+    cursor: pointer;
+    line-height: 7px;
+}
+form.todo:hover .remove {
+    visibility: visible;
+}
+
+
+form.todo input.name {
+    display: none;
+}
+form.todo div.name {
+    display: inline-block;
+    height: 20px;
+}
+
+form.todo.edit input.name {
+    display: inline-block;
+    height: 20px;
+    box-sizing: border-box;
+}
+form.todo.edit div.name {
+    display: none;
+}
+
+
+form.todo.saving div.name {
+    color: #aaa;
+}

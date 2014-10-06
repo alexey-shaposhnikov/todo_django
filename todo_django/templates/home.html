@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Dashboard{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'style.css' %}"/>
+{% endblock %}
+{% block body %}
+    Hello, {{ user.username }}. (<a href="{% url 'auth_logout' %}">Logout</a>)
+    <a href="{% url 'create_todo' %}" class="create-todo">Create todo</a>
+
+    <ul class="todos {% if not todos %}empty{% endif %}">
+        {% for todo in todos %}
+            <li>
+                <form class="todo" data-todo-id="{{ todo.id }}">
+                    <div class="name">{{ todo.name }}</div>
+                    <input type="text" value="{{ todo.name }}" class="name" name="name"/>
+
+                    <div class="remove">x</div>
+                    <input type="checkbox" {% if todo.done %}checked="checked"{% endif %} name="done"/>
+                </form>
+
+
+            </li>
+        {% endfor %}
+        <li class="empty">Empty todo list</li>
+    </ul>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'main.js' %}"></script>{% endblock %}

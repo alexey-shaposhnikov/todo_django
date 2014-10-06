@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Todo app | {% block title %}Main{% endblock %}</title>
+    {% block head %}{% endblock %}
+</head>
+<body>
+{% block body %}{% endblock %}
+<script src="{% static 'jquery-1.11.1.min.js' %}"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

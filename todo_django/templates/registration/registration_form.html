@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Registration{% endblock %}
+
+{% block body %}
+    {% if user.is_authenticated %}
+    Logged in as {{ user.username }}. <a href="{% url auth_logout %}">Logout</a>.
+    {% else %}
+    {% if form.non_field_errors %}
+        {{ form.non_field_errors }}
+    {% endif %}
+    <form method="post">
+
+      {% csrf_token %}
+
+        {{ form }}
+        <input type="submit">
+    </form>
+	<a href="{% url 'auth_login' %}">Already registered?</a>
+{% endif %}
+{% endblock %}
